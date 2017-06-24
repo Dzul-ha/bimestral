@@ -13,4 +13,10 @@ numero integer, calle varchar(40), cp integer,  municipio varchar(40));
 
 
 select * from direccion;
-    
+   
+create table SalaCine(id_sala integer primary key,
+ TituloPelicula varchar(80), Clasificacion varchar(20), num_asientos integer);
+
+create table Boleto(id_boleto integer primary key auto_increment, id_sala integer, 
+CostoBoleto float, foreign key(id_sala) references  SalaCine(id_sala));
+
