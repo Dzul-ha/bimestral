@@ -19,4 +19,8 @@ create table SalaCine(id_sala integer primary key,
 
 create table Boleto(id_boleto integer primary key auto_increment, id_sala integer, 
 CostoBoleto float, foreign key(id_sala) references  SalaCine(id_sala));
+describe SalaCine;
+describe boleto;
 
+create table SalaCine1(id_sala1 integer primary key,
+ TituloPelicula varchar(80), Clasificacion varchar(20), num_asientos=20);

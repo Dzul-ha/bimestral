@@ -5,56 +5,81 @@
  */
 package org.dzulha.bimestral;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  *
  * @author T-
  */
+@Entity
+@Table(name="SalaCine")
+ 
+
 public class SalaCine {
-    private Integer IdSala;
-    private String TituloPelicula;
-    private String Clasificacion; 
-    private Integer num_asientos;
-
-    public SalaCine() {
-    }
-
-    public SalaCine(Integer IdSala, String TituloPelicula, String Clasificacion, Integer num_asientos) {
-        this.IdSala = IdSala;
-        this.TituloPelicula = TituloPelicula;
-        this.Clasificacion = Clasificacion;
-        this.num_asientos = num_asientos;
-    }
-
-    public Integer getIdSala() {
-        return IdSala;
-    }
-
-    public void setIdSala(Integer IdSala) {
-        this.IdSala = IdSala;
-    }
-
-    public String getTituloPelicula() {
-        return TituloPelicula;
-    }
-
-    public void setTituloPelicula(String TituloPelicula) {
-        this.TituloPelicula = TituloPelicula;
-    }
-
-    public String getClasificacion() {
-        return Clasificacion;
-    }
-
-    public void setClasificacion(String Clasificacion) {
-        this.Clasificacion = Clasificacion;
-    }
-
-    public Integer getNum_asientos() {
-        return num_asientos;
-    }
-
-    public void setNum_asientos(Integer num_asientos) {
-        this.num_asientos = num_asientos;
-    }
     
+    @Id
+    @Column(name="id_sala")
+    private Long id;
+    @Column(name="TituloPelicula")
+    private String titulo;
+    @Column(name="Clasificacion")
+    private String clasidicacion;
+    @Column(name="num_asientos")
+    private Integer asientos;
+    
+   public SalaCine(){
+   }
+
+    @Override
+    public String toString() {
+        return "SalaCine{" + "id=" + id + ", titulo=" + titulo + ", clasidicacion=" + clasidicacion + ", asientos=" + asientos + '}';
+    }
+   
+
+    public SalaCine(Long id, String titulo, String clasidicacion, Integer asientos) {
+        this.id = id;
+        this.titulo = titulo;
+        this.clasidicacion = clasidicacion;
+        this.asientos = asientos;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public String getClasidicacion() {
+        return clasidicacion;
+    }
+
+    public void setClasidicacion(String clasidicacion) {
+        this.clasidicacion = clasidicacion;
+    }
+
+    public Integer getAsientos() {
+        return asientos;
+    }
+
+    public void setAsientos(Integer asientos) {
+        this.asientos = asientos;
+    }
+
+    
+    
+   
+
 }

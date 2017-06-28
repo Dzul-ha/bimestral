@@ -5,45 +5,71 @@
  */
 package org.dzulha.bimestral;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
 /**
  *
  * @author T-
  */
-public class Boleto {
-    private Integer id_boleto;
-    private Integer id_sala;
+@Entity
+@Table(name="Boleto")
 
-    public Boleto(Integer id_boleto, Integer id_sala, Float CostoBoleto) {
-        this.id_boleto = id_boleto;
-        this.id_sala = id_sala;
-        this.CostoBoleto = CostoBoleto;
+public class Boleto {
+    
+    @Id
+    @GeneratedValue
+    @Column(name="id_boleto")
+    private Long id;
+    
+    @ManyToOne
+    @JoinColumn(name="id_sala")
+    private SalaCine sala;
+    
+    @Column(name="CostoBoleto")
+    private Float costo;
+
+    @Override
+    public String toString() {
+        return "Boleto{" + "id=" + id + ", sala=" + sala + ", costo=" + costo + '}';
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public SalaCine getSala() {
+        return sala;
+    }
+
+    public void setSala(SalaCine sala) {
+        this.sala = sala;
+    }
+
+    public Float getCosto() {
+        return costo;
+    }
+
+    public void setCosto(Float costo) {
+        this.costo = costo;
+    }
+
+    public Boleto(Long id, SalaCine sala, Float costo) {
+        this.id = id;
+        this.sala = sala;
+        this.costo = costo;
     }
 
     public Boleto() {
     }
-    private Float CostoBoleto;
 
-    public Integer getId_boleto() {
-        return id_boleto;
-    }
-
-    public void setId_boleto(Integer id_boleto) {
-        this.id_boleto = id_boleto;
-    }
-
-    public Integer getId_sala() {
-        return id_sala;
-    }
-
-    public void setId_sala(Integer id_sala) {
-        this.id_sala = id_sala;
-    }
-
-    public Float getCostoBoleto() {
-        return CostoBoleto;
-    }
-
-    public void setCostoBoleto(Float CostoBoleto) {
-        this.CostoBoleto = CostoBoleto;
-    }
 }
