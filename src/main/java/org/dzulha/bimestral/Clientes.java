@@ -29,12 +29,18 @@ public class Clientes {
         this.nombre = nombre;
     }
 
+    public Clientes(Long idCliente, String nombre, int Tarjetas) {
+        this.idCliente = idCliente;
+        this.nombre = nombre;
+        this.Tarjetas = Tarjetas;
+    }
+
     public Clientes() {
     }
     @Column(name="nombre")
     private String nombre;
-    //@Column(name="Tarjetas")
-    //private Long Tarjetas;
+    @Column(name="num_tarjetas")
+    private int Tarjetas;
 
     public Long getIdCliente() {
         return idCliente;
@@ -50,5 +56,13 @@ public class Clientes {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public int getTarjetas() {
+        return Tarjetas;
+    }
+
+    public void setTarjetas(int Tarjetas) {
+        this.Tarjetas = Tarjetas;
     }
     }
