@@ -24,3 +24,9 @@ describe boleto;
 
 create table SalaCine1(id_sala1 integer primary key,
  TituloPelicula varchar(80), Clasificacion varchar(20), num_asientos=20);
+
+
+
+create table Clientes(id_Cliente interger primary key, nombre varchar(80));
+create table TarjetasCredito(id_Tarjeta integer primary key, tipo char(7), saldo float, fecha date, 
+foreign key(id_Cliente) references Clientes(id_Ciente));
